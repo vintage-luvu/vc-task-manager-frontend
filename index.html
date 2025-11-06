@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VC Task Manager</title>
+    <!-- Tailwind CSS を CDN 経由で読み込む -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto py-6">
+      <h1 class="text-3xl font-bold mb-4 text-center">VC タスク管理</h1>
+
+      <!-- タスク作成フォーム -->
+      <div class="bg-white p-4 rounded-lg shadow mb-6">
+        <h2 class="text-xl font-semibold mb-2">新規タスク作成</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="title" class="block text-sm font-medium">タイトル</label>
+            <input id="title" type="text" class="mt-1 w-full border rounded p-2" />
+          </div>
+          <div>
+            <label for="due" class="block text-sm font-medium">期限日時</label>
+            <input id="due" type="datetime-local" class="mt-1 w-full border rounded p-2" />
+          </div>
+          <div>
+            <label for="duration" class="block text-sm font-medium">所要時間（分）</label>
+            <input id="duration" type="number" min="1" class="mt-1 w-full border rounded p-2" />
+          </div>
+          <div>
+            <label for="priority" class="block text-sm font-medium">優先度（1が高）</label>
+            <select id="priority" class="mt-1 w-full border rounded p-2">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <label for="description" class="block text-sm font-medium">詳細</label>
+            <textarea id="description" rows="2" class="mt-1 w-full border rounded p-2"></textarea>
+          </div>
+        </div>
+        <button
+          id="addTaskButton"
+          class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          タスク追加
+        </button>
+      </div>
+
+      <!-- 今日のタスク3件 -->
+      <div class="bg-white p-4 rounded-lg shadow mb-6">
+        <h2 class="text-xl font-semibold mb-2">今日の優先タスク</h2>
+        <ul id="todayTasks" class="space-y-2"></ul>
+      </div>
+
+      <!-- タスク一覧 -->
+      <div class="bg-white p-4 rounded-lg shadow mb-6">
+        <h2 class="text-xl font-semibold mb-2">タスク一覧</h2>
+        <ul id="taskList" class="space-y-2"></ul>
+      </div>
+
+      <!-- スケジュール生成 -->
+      <div class="bg-white p-4 rounded-lg shadow mb-6">
+        <h2 class="text-xl font-semibold mb-2">スケジュール提案</h2>
+        <button
+          id="generateScheduleButton"
+          class="mb-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+        >
+          スケジュール生成
+        </button>
+        <ul id="scheduleList" class="space-y-2"></ul>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
