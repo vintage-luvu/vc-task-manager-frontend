@@ -1,4 +1,4 @@
-const API_BASE = window.API_BASE_URL || 'http://localhost:8000/api';
+const API_BASE = window.API_BASE_URL || 'https://vc-task-manager-backend.onrender.com/api';
 
 async function fetchTasks() {
   try {
